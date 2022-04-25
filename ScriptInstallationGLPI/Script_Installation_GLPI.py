@@ -61,3 +61,17 @@ subprocess.run(args=[commandeModificationMotDePasseUtilisateurRootMariaDB], shel
 
 
 subprocess.run(args=["systemctl", "restart", "mariadb.service"])
+
+
+
+
+
+connexionMariaDB = pymysql.connect(host=nomHoteMariaDB, user=nomUtilisateurRootMariaDB, password=motDePasseUtilisateurRootMariaDB)
+commandeMariaDB = connexionMariaDB.cursor()
+commandeMariaDB.execute("DELETE FROM mysql.user WHERE User='';")
+commandeMariaDB.execute("DELETE FROM mysql.user WHERE User=\'" + nomUtilisateurRootMariaDB + "\' AND Host NOT IN (\'" + nomHoteMariaDB + "\', \'127.0.0.1\', \'::1\');")
+commandeMariaDB.execute("FLUSH PRIVILEGES;")
+connexionMariaDB.close()
+
+
+subprocess.run(args=["systemctl", "restart", "mariadb.service"])
