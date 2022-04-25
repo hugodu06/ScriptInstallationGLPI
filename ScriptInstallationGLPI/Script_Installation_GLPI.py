@@ -39,3 +39,16 @@ langueInstallationGLPI = fichierDeConfigurationExterneIni['Variables']['langueIn
 nomVirtualHostGLPIServeurWebApache = fichierDeConfigurationExterneIni['Variables']['nomVirtualHostGLPIServeurWebApache']
 cheminAccesModeleFichierConfigurationVirtualHostGLPIServeurWebApache = fichierDeConfigurationExterneIni['Variables']['cheminAccesModeleFichierConfigurationVirtualHostGLPIServeurWebApache']
 cheminAccesFichierConfigurationVirtualHostGLPIServeurWebApache = fichierDeConfigurationExterneIni['Variables']['cheminAccesFichierConfigurationVirtualHostGLPIServeurWebApache']
+
+
+
+
+
+subprocess.run(args=["apt-get", "update"])
+subprocess.run(args=["apt-get", "dist-upgrade", "-y"])
+
+
+subprocess.run(args=["apt-get", "install", "apache2", "libapache2-mod-php", "-y"])
+subprocess.run(args=["apt-get", "install", "php", "php-imap", "php-ldap", "php-curl", "php-xmlrpc", "php-gd", "php-mysql", "php-cas", "php-intl", "php-dom", "php-xml", "php-simplexml", "php-apcu", "php-mbstring", "php-zip", "php-bz2", "-y"])
+subprocess.run(args=["apt-get", "install", "apcupsd", "zip", "bzip2", "-y"])
+subprocess.run(args=["apt-get", "install", "mariadb-server", "-y"])
