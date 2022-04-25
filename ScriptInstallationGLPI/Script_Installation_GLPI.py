@@ -104,3 +104,28 @@ connexionMariaDB.close()
 
 
 subprocess.run(args=["systemctl", "restart", "mariadb.service"])
+
+
+
+
+
+reponseURLListeVersionsGLPI = requests.get(urlListeVersionsGLPI)
+reponseJSONURLListeVersionsGLPI = reponseURLListeVersionsGLPI.json()
+
+
+numeroCommitVersionGLPIATester = 0
+numeroRubriqueCommitVersionGLPIAInstaller = 0
+
+
+for commit in reponseJSONURLListeVersionsGLPI:
+    versionGLPITesteePreversion = reponseJSONURLListeVersionsGLPI[numeroCommitVersionGLPIATester]["prerelease"]
+    if versionGLPITesteePreversion:
+        numeroCommitVersionGLPIATester = numeroCommitVersionGLPIATester + 1
+    else:
+        numeroVersionGLPIAInstaller = reponseJSONURLListeVersionsGLPI[numeroCommitVersionGLPIATester]["name"]
+        messageVersionGLPIInstallee = "La version de GLPI qui va être installée est la version "
+        messageNumeroVersionGLPIInstallee = messageVersionGLPIInstallee + numeroVersionGLPIAInstaller
+        print(messageNumeroVersionGLPIInstallee)
+        rubriqueURLTelechargementVersionGLPIAInstaller = reponseJSONURLListeVersionsGLPI[numeroCommitVersionGLPIATester]["assets"]
+        urlTelechargementVersionGLPIAInstaller = rubriqueURLTelechargementVersionGLPIAInstaller[numeroRubriqueCommitVersionGLPIAInstaller]["browser_download_url"]
+        break
