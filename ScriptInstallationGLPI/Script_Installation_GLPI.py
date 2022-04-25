@@ -145,3 +145,17 @@ repertoireArchiveInstallationGLPI = tarfile.open(nomRepertoireArchiveInstallatio
 repertoireArchiveInstallationGLPI.extractall(cheminAccesRepertoireInstallationGLPIServeurWebApache)
 repertoireArchiveInstallationGLPI.close()
 
+
+
+
+
+subprocess.run(args=["php", "bin/console", "glpi:system:check_requirements"], cwd=cheminAccesRepertoireConfigurationGLPIServeurWebApache)
+subprocess.run(args=["php", "bin/console", "db:install", "-L", langueInstallationGLPI, "-H", nomHoteMariaDB, "-d", nomBaseDeDonneesGLPIMariaDB, "-u", nomUtilisateurGLPIMariaDB, "-p", motDePasseUtilisateurGLPIMariaDB, "-n"], cwd=cheminAccesRepertoireConfigurationGLPIServeurWebApache)
+
+
+
+
+
+subprocess.run(args=["chown", "-R", "www-data", cheminAccesRepertoireConfigurationGLPIServeurWebApache])
+
+subprocess.run(args=["systemctl", "restart", "apache2.service"])
