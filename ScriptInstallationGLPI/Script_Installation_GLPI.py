@@ -159,3 +159,20 @@ subprocess.run(args=["php", "bin/console", "db:install", "-L", langueInstallatio
 subprocess.run(args=["chown", "-R", "www-data", cheminAccesRepertoireConfigurationGLPIServeurWebApache])
 
 subprocess.run(args=["systemctl", "restart", "apache2.service"])
+
+
+
+
+
+fichierConfigurationVirtualHostGLPIServeurWebApache = open(cheminAccesFichierConfigurationVirtualHostGLPIServeurWebApache, "w+")
+fichierConfigurationVirtualHostGLPIServeurWebApache.close()
+
+
+shutil.copyfile(cheminAccesModeleFichierConfigurationVirtualHostGLPIServeurWebApache,cheminAccesFichierConfigurationVirtualHostGLPIServeurWebApache)
+
+
+subprocess.run(args=["a2ensite", nomVirtualHostGLPIServeurWebApache])
+
+
+subprocess.run(args=["systemctl", "restart", "apache2.service"])
+
