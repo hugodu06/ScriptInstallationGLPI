@@ -134,3 +134,14 @@ for commit in reponseJSONURLListeVersionsGLPI:
 
 
 nomRepertoireArchiveInstallationGLPITelecharge = wget.download(urlTelechargementVersionGLPIAInstaller, out=cheminAccesRepertoireDestinationTelechargementVersionGLPIAInstaller)
+
+
+
+
+
+
+
+repertoireArchiveInstallationGLPI = tarfile.open(nomRepertoireArchiveInstallationGLPITelecharge, "r:gz")
+repertoireArchiveInstallationGLPI.extractall(cheminAccesRepertoireInstallationGLPIServeurWebApache)
+repertoireArchiveInstallationGLPI.close()
+
