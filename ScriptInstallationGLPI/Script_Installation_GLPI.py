@@ -129,3 +129,8 @@ for commit in reponseJSONURLListeVersionsGLPI:
         rubriqueURLTelechargementVersionGLPIAInstaller = reponseJSONURLListeVersionsGLPI[numeroCommitVersionGLPIATester]["assets"]
         urlTelechargementVersionGLPIAInstaller = rubriqueURLTelechargementVersionGLPIAInstaller[numeroRubriqueCommitVersionGLPIAInstaller]["browser_download_url"]
         break
+
+
+
+
+nomRepertoireArchiveInstallationGLPITelecharge = wget.download(urlTelechargementVersionGLPIAInstaller, out=cheminAccesRepertoireDestinationTelechargementVersionGLPIAInstaller)
