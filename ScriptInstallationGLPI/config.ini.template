@@ -1,0 +1,18 @@
+[Mots De Passe]
+motDePasseUtilisateurRootMariaDB = ChangerLeMotDePasse
+motDePasseUtilisateurGLPIMariaDB = ChangerLeMotDePasse
+
+[Variables]
+nomHoteMariaDB = localhost
+nomUtilisateurRootMariaDB = root
+nomBaseDeDonneesGLPIMariaDB = glpidb
+nomUtilisateurGLPIMariaDB = glpiuser
+cheminAccesRepertoireDonneesSystemeFuseauxHoraires = /usr/share/zoneinfo
+urlListeVersionsGLPI = https://api.github.com/repos/glpi-project/glpi/releases?per_page=100
+cheminAccesRepertoireDestinationTelechargementVersionGLPIAInstaller = /tmp
+cheminAccesRepertoireInstallationGLPIServeurWebApache = /var/www
+cheminAccesRepertoireConfigurationGLPIServeurWebApache = /var/www/glpi
+langueInstallationGLPI = fr_FR
+nomVirtualHostGLPIServeurWebApache = glpi.local.conf
+cheminAccesModeleFichierConfigurationVirtualHostGLPIServeurWebApache = /tmp/ScriptInstallationGLPI/glpi.local.conf
+cheminAccesFichierConfigurationVirtualHostGLPIServeurWebApache = /etc/apache2/sites-available/glpi.local.conf
