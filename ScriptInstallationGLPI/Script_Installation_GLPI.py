@@ -75,3 +75,12 @@ connexionMariaDB.close()
 
 
 subprocess.run(args=["systemctl", "restart", "mariadb.service"])
+
+
+
+
+commandeInitialisationDonneesFuseauxHoraires = "mysql_tzinfo_to_sql " + cheminAccesRepertoireDonneesSystemeFuseauxHoraires + " | mysql -u " + nomUtilisateurRootMariaDB + " -p" + motDePasseUtilisateurRootMariaDB + " mysql"
+subprocess.run(args=[commandeInitialisationDonneesFuseauxHoraires], shell=True)
+
+
+subprocess.run(args=["systemctl", "restart", "mariadb.service"])
