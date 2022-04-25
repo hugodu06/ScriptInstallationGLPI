@@ -84,3 +84,23 @@ subprocess.run(args=[commandeInitialisationDonneesFuseauxHoraires], shell=True)
 
 
 subprocess.run(args=["systemctl", "restart", "mariadb.service"])
+
+
+
+
+
+
+connexionMariaDB = pymysql.connect(host=nomHoteMariaDB, user=nomUtilisateurRootMariaDB, password=motDePasseUtilisateurRootMariaDB)
+commandeMariaDB = connexionMariaDB.cursor()
+commandeMariaDB.execute("CREATE DATABASE " + nomBaseDeDonneesGLPIMariaDB + ";")
+commandeMariaDB.execute("GRANT ALL PRIVILEGES ON " + nomBaseDeDonneesGLPIMariaDB + ".* TO " + nomUtilisateurGLPIMariaDB + "@" + nomHoteMariaDB + " IDENTIFIED BY \'" + motDePasseUtilisateurGLPIMariaDB + "\';")
+commandeMariaDB.execute("GRANT SELECT ON mysql.time_zone_name TO " + nomUtilisateurGLPIMariaDB + "@" + nomHoteMariaDB + ";")
+commandeMariaDB.execute("FLUSH PRIVILEGES;")
+commandeMariaDB.execute("SHOW DATABASES;")
+listeBasesDeDonneesMariaDB = commandeMariaDB.fetchall()
+for baseDeDonnees in listeBasesDeDonneesMariaDB:
+    print(baseDeDonnees)
+connexionMariaDB.close()
+
+
+subprocess.run(args=["systemctl", "restart", "mariadb.service"])
