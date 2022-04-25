@@ -65,7 +65,8 @@ L'interface réseau du serveur doit être configurée en statique :
 Redémarrer le service *networking*, afin de prendre en compte la nouvelle configuration statique de l'interface réseau du serveur :
 
 > *En tant que superutilisateur - root*  
-> `service networking restart`
+> `service networking restart`  
+> `ifup eth0`
 
 Installer les paquets nécessaires à l'exécution du script :
 
