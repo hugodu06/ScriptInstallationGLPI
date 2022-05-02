@@ -1,0 +1,11 @@
+# Modules Python nécessaires à l'exécution du script
+
+configparser
+logging
+pymysql
+requests
+shutil
+subprocess
+sys
+tarfile
+wget
