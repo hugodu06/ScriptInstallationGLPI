@@ -43,6 +43,9 @@ Ce fichier de configuration externe a été rédigé au format de données **INI
 - *'glpi.local.conf'*  
 Il s'agit du fichier de configuration externe du VirtualHost de GLPI (*glpi.local*) sur le serveur Web Apache, qui contient les données de configuration du VirtualHost de GLPI. Le script fait appel, lors de son exécution, à ce fichier de configuration externe, pour en extraire les données, afin de créer le fichier de configuration du VirtualHost de GLPI en local sur le serveur Web Apache.
 
+- *'requirements.txt'*  
+Il s'agit du fichier de configuration externe du gestionnaire de paquets de Python : **PIP**. Il contient la liste des modules à installer via le gestionnaire de paquets de Python, lors de la mise en place de l'environnement d'utilisation du projet. Ces paquets sont nécessaires et indispensables à l'exécution du script.
+
 ----------
 
 ## Environnement d'utilisation du projet *ScriptInstallationGLPI*
