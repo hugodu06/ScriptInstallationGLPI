@@ -77,15 +77,7 @@ Installer les paquets nécessaires à l'exécution du script :
 Installer les modules Python nécessaires à l'exécution du script :
 
 > *En tant que superutilisateur - root*  
-> `pip install configparser`  
-> `pip install logging`  
-> `pip install pymysql`  
-> `pip install requests`  
-> `pip install shutil`  
-> `pip install subprocess`  
-> `pip install sys`  
-> `pip install tarfile`  
-> `pip install wget`
+> `pip install -r /tmp/ScriptInstallationGLPI/requirements.txt`
 
 ----------
 
